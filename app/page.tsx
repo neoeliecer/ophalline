@@ -75,7 +75,7 @@ export default function Home() {
           </nav>
 
           <a
-            href="https://wa.me/573187136375"
+            href="https://wa.me/573223073678"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-red-600/20 hover:shadow-red-700/30 -translate-y-[1px] hover:-translate-y-[2px] active:translate-y-0 transition-all duration-200"
@@ -107,7 +107,7 @@ export default function Home() {
             </p>
             <div className="flex gap-4 flex-wrap pt-2">
               <a
-                href="https://wa.me/573187136375"
+                href="https://wa.me/573223073678"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-2xl font-extrabold text-lg shadow-xl shadow-red-600/30 hover:shadow-red-700/40 -translate-y-[1px] hover:-translate-y-[2px] active:translate-y-0 transition-all duration-200"
@@ -423,7 +423,7 @@ export default function Home() {
                   value={formData.telefono}
                   onChange={handleChange}
                   required
-                  placeholder="Ej: 318 713 6375"
+                  placeholder="Ej: 322 307 3678"
                   className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light text-gray-800"
                 />
               </div>
@@ -480,7 +480,7 @@ export default function Home() {
             <h4 className="font-extrabold text-lg text-white">Información de Contacto</h4>
             <div className="space-y-2 text-gray-400 font-light text-sm">
               <p>Kelly Johanna Herrera — Representante Legal</p>
-              <p className="text-red-500 font-semibold text-base">Cel: 318 7136375</p>
+              <p className="text-red-500 font-semibold text-base">Cel: 322 307 3678</p>
             </div>
           </div>
         </div>
@@ -488,7 +488,7 @@ export default function Home() {
 
       {/* WHATSAPP FLOATING BUTTON */}
       <a
-        href="https://wa.me/573187136375"
+        href="https://wa.me/573223073678"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4.5 rounded-full shadow-2xl hover:shadow-green-500/30 hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center animate-bounce"
