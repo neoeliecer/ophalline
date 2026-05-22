@@ -1,8 +1,44 @@
 "use client";
 
 import Image from 'next/image';
+import { useState } from 'react';
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    telefono: '',
+    mensaje: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      const body = new URLSearchParams({
+        'form-name': 'contacto',
+        ...formData
+      } as any).toString();
+      
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
+      });
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white font-sans text-gray-800 antialiased selection:bg-red-500 selection:text-white">
 
@@ -320,52 +356,110 @@ export default function Home() {
             </p>
           </div>
 
-          <form className="bg-gray-50 border border-gray-100 p-8 md:p-12 rounded-3xl shadow-xl space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          {isSubmitted ? (
+            <div className="bg-white border border-green-100 p-8 md:p-12 rounded-3xl shadow-xl text-center space-y-6 animate-fade-in max-w-2xl mx-auto">
+              <div className="mx-auto w-16 h-16 bg-green-50 rounded-full flex items-center justify-center border border-green-100">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-black text-gray-900">¡Solicitud Recibida!</h3>
+              <p className="text-gray-600 font-light max-w-md mx-auto">
+                Gracias por contactar a Ophal Line. Hemos recibido tus datos y un asesor se comunicará contigo al teléfono <strong className="font-semibold text-gray-900">{formData.telefono}</strong> a la mayor brevedad.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormData({ nombre: '', email: '', telefono: '', mensaje: '' });
+                }}
+                className="text-sm font-extrabold text-red-600 hover:text-red-700 transition-colors uppercase tracking-wider"
+              >
+                Enviar otra solicitud
+              </button>
+            </div>
+          ) : (
+            <form 
+              name="contacto"
+              method="POST"
+              data-netlify="true"
+              onSubmit={handleSubmit}
+              className="bg-gray-50 border border-gray-100 p-8 md:p-12 rounded-3xl shadow-xl space-y-6"
+            >
+              <input type="hidden" name="form-name" value="contacto" />
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700">Nombre</label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    required
+                    placeholder="Tu nombre completo"
+                    className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light text-gray-800"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-gray-700">Correo Electrónico</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    placeholder="Tu correo de contacto"
+                    className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light text-gray-800"
+                  />
+                </div>
+              </div>
+
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700">Nombre</label>
+                <label className="text-sm font-semibold text-gray-700">Teléfono / Celular</label>
                 <input
                   type="text"
-                  placeholder="Tu nombre completo"
-                  className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light"
+                  name="telefono"
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  required
+                  placeholder="Ej: 318 713 6375"
+                  className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light text-gray-800"
                 />
               </div>
+
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-gray-700">Correo Electrónico</label>
-                <input
-                  type="email"
-                  placeholder="Tu correo de contacto"
-                  className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light"
+                <label className="text-sm font-semibold text-gray-700">Mensaje</label>
+                <textarea
+                  rows={5}
+                  name="mensaje"
+                  value={formData.mensaje}
+                  onChange={handleChange}
+                  required
+                  placeholder="Cuéntanos qué necesitas (tipo de servicio, cantidad de entregas, etc.)"
+                  className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light resize-none text-gray-800"
                 />
               </div>
-            </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700">Teléfono / Celular</label>
-              <input
-                type="text"
-                placeholder="Ej: 318 713 6375"
-                className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700">Mensaje</label>
-              <textarea
-                rows={5}
-                placeholder="Cuéntanos qué necesitas (tipo de servicio, cantidad de entregas, etc.)"
-                className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              onClick={(e) => e.preventDefault()}
-              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 rounded-xl font-extrabold text-lg shadow-xl shadow-red-600/20 hover:shadow-red-700/30 transition-all duration-200 cursor-pointer"
-            >
-              Enviar Solicitud
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-red-600 hover:bg-red-700 disabled:bg-gray-400 text-white py-4 rounded-xl font-extrabold text-lg shadow-xl shadow-red-600/20 hover:shadow-red-700/30 transition-all duration-200 cursor-pointer flex items-center justify-center gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Enviando solicitud...
+                  </>
+                ) : (
+                  'Enviar Solicitud'
+                )}
+              </button>
+            </form>
+          )}
         </div>
       </section>
 
