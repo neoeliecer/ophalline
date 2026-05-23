@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import diaryData from './diario.json';
 
@@ -15,8 +15,42 @@ interface LogEntry {
 }
 
 export default function Diario() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+  const [shake, setShake] = useState<boolean>(false);
+  
   const [filter, setFilter] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+  // Check session storage on mount
+  useEffect(() => {
+    const auth = sessionStorage.getItem('diario_auth');
+    if (auth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Clave de acceso establecida: matrix2026
+    if (password === 'matrix2026') {
+      setError(false);
+      setIsAuthenticated(true);
+      sessionStorage.setItem('diario_auth', 'true');
+    } else {
+      setError(true);
+      setShake(true);
+      setPassword('');
+      setTimeout(() => setShake(false), 500);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem('diario_auth');
+  };
 
   const filteredData = (diaryData as LogEntry[]).filter((item) => {
     const matchesFilter = filter === 'ALL' || item.tipo === filter;
@@ -56,6 +90,95 @@ export default function Diario() {
     }
   };
 
+  // Lock Screen Render
+  if (!isAuthenticated) {
+    return (
+      <main className="min-h-screen bg-[#0a1931] text-white font-sans antialiased flex items-center justify-center p-6 relative overflow-hidden">
+        {/* CSS Keyframes injected for Shake Animation */}
+        <style>{`
+          @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
+            20%, 40%, 60%, 80% { transform: translateX(6px); }
+          }
+          .animate-shake {
+            animation: shake 0.4s ease-in-out;
+          }
+        `}</style>
+
+        {/* Background Blur Halo */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-red-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[80px] pointer-events-none"></div>
+
+        <div className="max-w-md w-full relative z-10 flex flex-col items-center">
+          {/* Logo / Header */}
+          <div className="mb-8 text-center">
+            <span className="text-4xl mb-3 block">🔒</span>
+            <h1 className="text-2xl font-black tracking-tight text-white mb-2">Acceso Restringido</h1>
+            <p className="text-xs text-gray-400 font-semibold tracking-widest uppercase">Diario de Desarrollo</p>
+          </div>
+
+          {/* Login Card */}
+          <div 
+            className={`w-full bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md shadow-2xl transition-all duration-300 ${
+              shake ? 'animate-shake border-red-500/50 shadow-red-500/5' : ''
+            }`}
+          >
+            <p className="text-sm text-blue-100/70 text-center font-light leading-relaxed mb-6">
+              Esta sección es privada para el equipo de desarrollo de <strong className="font-semibold text-white">Matrix Producciones</strong> y <strong className="font-semibold text-white">Ophal Line</strong>. Por favor, ingresa la clave de acceso.
+            </p>
+
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Introduce la contraseña"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (error) setError(false);
+                  }}
+                  className={`w-full bg-white/5 border outline-none p-4 pr-12 rounded-xl text-sm font-light text-white transition-all text-center ${
+                    error ? 'border-red-500 focus:border-red-500' : 'border-white/10 focus:border-red-500'
+                  }`}
+                  autoFocus
+                />
+                
+                {/* Show/Hide password toggle */}
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-4 text-gray-400 hover:text-white transition-colors"
+                >
+                  {showPassword ? "🙈" : "👁️"}
+                </button>
+              </div>
+
+              {error && (
+                <p className="text-xs text-red-400 text-center font-semibold animate-pulse">
+                  Contraseña incorrecta. Inténtalo de nuevo.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                className="w-full bg-red-600 hover:bg-red-700 text-white py-3.5 rounded-xl font-extrabold text-sm shadow-xl shadow-red-600/20 hover:shadow-red-700/30 transition-all duration-200 cursor-pointer"
+              >
+                Desbloquear Acceso
+              </button>
+            </form>
+          </div>
+
+          {/* Back Link */}
+          <Link href="/" className="mt-8 text-xs text-gray-500 hover:text-gray-300 font-semibold tracking-wider uppercase transition-colors">
+            ← Volver al Sitio Principal
+          </Link>
+        </div>
+      </main>
+    );
+  }
+
+  // Full Timeline Render
   return (
     <main className="min-h-screen bg-[#0a1931] text-white font-sans antialiased relative overflow-hidden">
       {/* Background Gradients */}
@@ -71,9 +194,19 @@ export default function Diario() {
               <span className="font-semibold text-gray-300 group-hover:text-white transition-colors">Volver al Inicio</span>
             </div>
           </Link>
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse"></span>
-            <span className="text-xs text-gray-400 font-semibold tracking-wider uppercase">Bitácora de Desarrollo</span>
+          
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="h-2.5 w-2.5 rounded-full bg-red-500 animate-pulse"></span>
+              <span className="text-xs text-gray-400 font-semibold tracking-wider uppercase hidden sm:inline-block">Bitácora de Desarrollo</span>
+            </div>
+            
+            <button
+              onClick={handleLogout}
+              className="text-xs font-bold text-gray-400 hover:text-red-400 hover:bg-red-500/5 border border-white/5 hover:border-red-500/20 px-3 py-1.5 rounded-xl transition-all duration-300"
+            >
+              Cerrar Sesión 🔒
+            </button>
           </div>
         </div>
       </header>
