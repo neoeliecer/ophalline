@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -471,10 +472,15 @@ export default function Home() {
             <p className="text-gray-400 font-light text-sm max-w-sm">
               Tu aliado estratégico en logística, distribución inmediata y entrega urbana. Experiencia, tecnología y excelencia garantizada.
             </p>
-            <p className="text-xs text-gray-500 pt-4 flex flex-col gap-1">
+            <div className="text-xs text-gray-500 pt-4 flex flex-col gap-1.5">
               <span>© {new Date().getFullYear()} Ophal Line. Todos los derechos reservados.</span>
-              <span className="text-gray-600">Realizada por <strong className="font-semibold text-gray-400">Matrix Producciones</strong></span>
-            </p>
+              <span className="text-gray-600">
+                Realizada por <strong className="font-semibold text-gray-400">Matrix Producciones</strong> —{' '}
+                <Link href="/diario" className="text-red-500 hover:text-red-400 hover:underline transition-colors font-semibold">
+                  Ver Diario de Desarrollo 📑
+                </Link>
+              </span>
+            </div>
           </div>
 
           <div className="space-y-4 text-left md:text-right">

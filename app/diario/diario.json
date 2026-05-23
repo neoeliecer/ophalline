@@ -1,0 +1,38 @@
+[
+  {
+    "id": 4,
+    "commit": "466cf05",
+    "fecha": "2026-05-22 11:55:27",
+    "tipo": "CHORE",
+    "titulo": "Créditos en Footer",
+    "descripcion": "Se agregaron los créditos en el pie de página reconociendo el desarrollo a cargo de 'Matrix Producciones'. Esto fortalece la marca y atribución del proyecto.",
+    "autor": "Matrix Producciones & Antigravity"
+  },
+  {
+    "id": 3,
+    "commit": "330fa5e",
+    "fecha": "2026-05-22 11:01:11",
+    "tipo": "CHORE",
+    "titulo": "Actualización de Celular de Contacto",
+    "descripcion": "Se actualizó el número celular principal a '322 307 3678' en los enlaces de WhatsApp, botones de llamada y en los datos del pie de página para asegurar el correcto flujo de leads.",
+    "autor": "Matrix Producciones & Antigravity"
+  },
+  {
+    "id": 2,
+    "commit": "c571135",
+    "fecha": "2026-05-22 10:57:38",
+    "tipo": "FEAT",
+    "titulo": "Formulario de Contacto Interactivo con React y Netlify",
+    "descripcion": "Implementación del formulario de contacto interactivo utilizando el estado de React (`useState`), animaciones de carga, y envío de datos codificados mediante URL a Netlify Forms para una recolección fluida de leads sin recargas de página.",
+    "autor": "Matrix Producciones & Antigravity"
+  },
+  {
+    "id": 1,
+    "commit": "3eeb7bc",
+    "fecha": "2026-05-22 09:43:40",
+    "tipo": "FEAT",
+    "titulo": "Estructura del Proyecto y Landing Page",
+    "descripcion": "Creación inicial del proyecto con Next.js y Tailwind CSS. Implementación del navbar responsivo, sección Hero premium, sección de 'Quiénes Somos', cuadrícula de servicios y pie de página corporativo.",
+    "autor": "Matrix Producciones & Antigravity"
+  }
+]
