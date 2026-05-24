@@ -22,27 +22,29 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const body = new URLSearchParams({
-        nombre: formData.nombre,
-        email: formData.email,
-        telefono: formData.telefono,
-        mensaje: formData.mensaje,
-        _subject: 'Nueva Solicitud de Servicio - Ophal Line',
-        _captcha: 'false'
-      } as any).toString();
-      
-      // Enviamos como "Simple Request" (x-www-form-urlencoded) y usando 'no-cors'.
-      // Esto le dice al navegador que envíe los datos de inmediato y que no intente validar los encabezados de respuesta CORS,
-      // evitando cualquier error de red en el cliente.
-      await fetch('https://formsubmit.co/contacto@ophalline.com', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        mode: 'no-cors',
-        body
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '5b4c7900-d07b-46cd-8671-76f6eaf5dcf3',
+          Nombre: formData.nombre,
+          Email: formData.email,
+          Teléfono: formData.telefono,
+          Mensaje: formData.mensaje,
+          subject: 'Nueva Solicitud de Servicio - Ophal Line',
+          from_name: 'Web Ophal Line'
+        })
       });
       
-      // Marcamos como enviado con éxito para mostrar la pantalla de "¡Solicitud Recibida!"
-      setIsSubmitted(true);
+      const result = await response.json();
+      if (result.success) {
+        setIsSubmitted(true);
+      } else {
+        console.error('Web3Forms response error:', result);
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
