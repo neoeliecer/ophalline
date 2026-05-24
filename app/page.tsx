@@ -22,15 +22,19 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const body = new URLSearchParams({
-        'form-name': 'contacto',
-        ...formData
-      } as any).toString();
-      
-      await fetch('/', {
+      await fetch('https://formsubmit.co/ajax/contacto@ophalline.com', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          Nombre: formData.nombre,
+          Email: formData.email,
+          Teléfono: formData.telefono,
+          Mensaje: formData.mensaje,
+          _subject: 'Nueva Solicitud de Servicio - Ophal Line'
+        })
       });
       setIsSubmitted(true);
     } catch (error) {
