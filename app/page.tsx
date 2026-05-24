@@ -22,24 +22,26 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/contacto', {
+      const body = new URLSearchParams({
+        nombre: formData.nombre,
+        email: formData.email,
+        telefono: formData.telefono,
+        mensaje: formData.mensaje,
+        _subject: 'Nueva Solicitud de Servicio - Ophal Line',
+        _captcha: 'false'
+      } as any).toString();
+      
+      // Enviamos como "Simple Request" (x-www-form-urlencoded).
+      // El navegador envía los datos directamente al servidor externo sin hacer consultas CORS previas (preflight),
+      // lo cual garantiza que FormSubmit reciba los datos de inmediato.
+      await fetch('https://formsubmit.co/contacto@ophalline.com', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          Nombre: formData.nombre,
-          Email: formData.email,
-          Teléfono: formData.telefono,
-          Mensaje: formData.mensaje
-        })
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body
       });
       
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        console.error('API response error:', await response.text());
-      }
+      // Marcamos como enviado con éxito para mostrar la pantalla de "¡Solicitud Recibida!"
+      setIsSubmitted(true);
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
