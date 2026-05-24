@@ -345,7 +345,7 @@ export default function Home() {
         className="py-24 bg-white relative"
       >
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
             <span className="inline-block bg-red-600 text-white px-5 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-md">
               Contáctanos
             </span>
@@ -355,6 +355,42 @@ export default function Home() {
             <p className="text-lg text-gray-600 font-light">
               Déjanos tus datos y nos comunicaremos de inmediato para ofrecerte la mejor solución logística.
             </p>
+          </div>
+
+          {/* Tarjetas de Correos de Contacto */}
+          <div className="grid sm:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
+            {[
+              {
+                icon: "✉️",
+                title: "Contacto General",
+                desc: "Para cotizaciones e información",
+                email: "contacto@ophalline.com"
+              },
+              {
+                icon: "🤝",
+                title: "Servicio al Cliente",
+                desc: "Soporte y rastreo de envíos",
+                email: "servicioalcliente@ophalline.com"
+              },
+              {
+                icon: "💼",
+                title: "Gerencia General",
+                desc: "Carlos Palechor — Director",
+                email: "gerencia@ophalline.com"
+              }
+            ].map((correo, i) => (
+              <div key={i} className="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center space-y-2 hover:shadow-md transition-shadow">
+                <div className="text-2xl">{correo.icon}</div>
+                <h4 className="font-extrabold text-gray-900 text-sm">{correo.title}</h4>
+                <p className="text-xs text-gray-500 font-light">{correo.desc}</p>
+                <a 
+                  href={`mailto:${correo.email}`} 
+                  className="block text-red-600 hover:text-red-700 font-bold text-xs hover:underline pt-1 break-all"
+                >
+                  {correo.email}
+                </a>
+              </div>
+            ))}
           </div>
 
           {isSubmitted ? (
@@ -486,8 +522,13 @@ export default function Home() {
           <div className="space-y-4 text-left md:text-right">
             <h4 className="font-extrabold text-lg text-white">Información de Contacto</h4>
             <div className="space-y-2 text-gray-400 font-light text-sm">
-              <p>Kelly Johanna Herrera — Representante Legal</p>
+              <p className="text-white font-semibold">Kelly Johanna Herrera — Representante Legal</p>
               <p className="text-red-500 font-semibold text-base">Cel: 322 307 3678</p>
+              <div className="pt-2 space-y-1 text-xs text-gray-400">
+                <p>Contacto: <a href="mailto:contacto@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">contacto@ophalline.com</a></p>
+                <p>Servicio al Cliente: <a href="mailto:servicioalcliente@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">servicioalcliente@ophalline.com</a></p>
+                <p>Gerencia: <a href="mailto:gerencia@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">gerencia@ophalline.com</a></p>
+              </div>
             </div>
           </div>
         </div>
