@@ -22,21 +22,24 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await fetch('https://formsubmit.co/ajax/contacto@ophalline.com', {
+      const response = await fetch('/api/contacto', {
         method: 'POST',
         headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           Nombre: formData.nombre,
           Email: formData.email,
           Teléfono: formData.telefono,
-          Mensaje: formData.mensaje,
-          _subject: 'Nueva Solicitud de Servicio - Ophal Line'
+          Mensaje: formData.mensaje
         })
       });
-      setIsSubmitted(true);
+      
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        console.error('API response error:', await response.text());
+      }
     } catch (error) {
       console.error('Error submitting form:', error);
     } finally {
