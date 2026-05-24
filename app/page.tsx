@@ -31,12 +31,13 @@ export default function Home() {
         _captcha: 'false'
       } as any).toString();
       
-      // Enviamos como "Simple Request" (x-www-form-urlencoded).
-      // El navegador envía los datos directamente al servidor externo sin hacer consultas CORS previas (preflight),
-      // lo cual garantiza que FormSubmit reciba los datos de inmediato.
+      // Enviamos como "Simple Request" (x-www-form-urlencoded) y usando 'no-cors'.
+      // Esto le dice al navegador que envíe los datos de inmediato y que no intente validar los encabezados de respuesta CORS,
+      // evitando cualquier error de red en el cliente.
       await fetch('https://formsubmit.co/contacto@ophalline.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        mode: 'no-cors',
         body
       });
       
