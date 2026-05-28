@@ -1,5 +1,23 @@
 [
   {
+    "id": 6,
+    "commit": "e7d8c9b",
+    "fecha": "2026-05-27 20:00:00",
+    "tipo": "FEAT",
+    "titulo": "Estructuración y Despliegue de Portal Multi-página en WordPress",
+    "descripcion": "División de la landing page única en un portal multi-página corporativo. Despliegue de 4 secciones individuales: Inicio (/), Quiénes Somos (/quienes-somos/), Servicios (/servicios/) y Contacto (/contacto/). Actualización del menú de navegación unificado con enlaces absolutos e interactividad móvil en todas las páginas.",
+    "autor": "Matrix Producciones & Antigravity"
+  },
+  {
+    "id": 5,
+    "commit": "f5b2a0c",
+    "fecha": "2026-05-27 19:53:00",
+    "tipo": "FEAT",
+    "titulo": "Migración inicial de Landing Page a WordPress en Pantheon",
+    "descripcion": "Conversión de la landing page de Next.js a una página personalizada en WordPress. Creación de la plantilla FSE 'page-blank' para diseño limpio y carga de Tailwind CSS CDN. Vinculación de recursos multimedia oficiales.",
+    "autor": "Matrix Producciones & Antigravity"
+  },
+  {
     "id": 4,
     "commit": "466cf05",
     "fecha": "2026-05-22 11:55:27",
