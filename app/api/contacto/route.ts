@@ -24,7 +24,8 @@ export async function POST(request: Request) {
         Teléfono: data.Teléfono,
         Mensaje: data.Mensaje,
         _subject: 'Nueva Solicitud de Servicio - Ophal Line',
-        _cc: 'carlosandrespo66@gmail.com'
+        _cc: 'carlosandrespo66@gmail.com',
+        _url: referer
       })
     });
     
