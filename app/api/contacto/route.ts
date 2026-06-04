@@ -18,7 +18,8 @@ export async function POST(request: Request) {
         Email: data.Email,
         Teléfono: data.Teléfono,
         Mensaje: data.Mensaje,
-        _subject: 'Nueva Solicitud de Servicio - Ophal Line'
+        _subject: 'Nueva Solicitud de Servicio - Ophal Line',
+        _cc: 'carlosandrespo66@gmail.com'
       })
     });
     

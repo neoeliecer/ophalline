@@ -1,5 +1,14 @@
 [
   {
+    "id": 7,
+    "commit": "PENDING",
+    "fecha": "2026-06-03 23:25:00",
+    "tipo": "FEAT",
+    "titulo": "Migración a API Local y Doble Receptor en Formulario de Contacto",
+    "descripcion": "Migración del formulario de contacto interactivo de Web3Forms directo a la API local de Next.js (/api/contacto). Integración con FormSubmit.co para el envío simultáneo al correo principal (contacto@ophalline.com) y copia/carbon copy (carlosandrespo66@gmail.com).",
+    "autor": "Matrix Producciones & Antigravity"
+  },
+  {
     "id": 6,
     "commit": "e7d8c9b",
     "fecha": "2026-05-27 20:00:00",

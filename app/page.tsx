@@ -22,28 +22,24 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/contacto', {
         method: 'POST',
         headers: { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          access_key: '5b4c7900-d07b-46cd-8671-76f6eaf5dcf3',
           Nombre: formData.nombre,
           Email: formData.email,
           Teléfono: formData.telefono,
-          Mensaje: formData.mensaje,
-          subject: 'Nueva Solicitud de Servicio - Ophal Line',
-          from_name: 'Web Ophal Line'
+          Mensaje: formData.mensaje
         })
       });
       
-      const result = await response.json();
-      if (result.success) {
+      if (response.ok) {
         setIsSubmitted(true);
       } else {
-        console.error('Web3Forms response error:', result);
+        const result = await response.json();
+        console.error('API response error:', result);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
