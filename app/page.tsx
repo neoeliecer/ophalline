@@ -59,14 +59,13 @@ export default function Home() {
       <header className="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md border-b border-gray-100 z-50 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           <a href="#" className="flex items-center gap-3 group">
-            <div className="relative h-12 w-40 overflow-hidden">
+            <div className="relative h-16 w-52 overflow-hidden">
               <img
-                src="/logo.jpeg"
+                src="/logo3.png"
                 alt="Ophal Line"
                 className="object-contain h-full w-full group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
-                  // Fallback if logo.jpeg is not copied yet
-                  e.currentTarget.src = "/logo.png";
+                  e.currentTarget.src = "/logo3.png";
                 }}
               />
             </div>
@@ -79,6 +78,9 @@ export default function Home() {
             <a href="#nosotros" className="hover:text-red-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600 hover:after:w-full after:transition-all after:duration-300">
               Quiénes Somos
             </a>
+            <a href="#mision" className="hover:text-red-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600 hover:after:w-full after:transition-all after:duration-300">
+              Misión & Visión
+            </a>
             <a href="#servicios" className="hover:text-red-600 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-red-600 hover:after:w-full after:transition-all after:duration-300">
               Servicios
             </a>
@@ -88,7 +90,7 @@ export default function Home() {
           </nav>
 
           <a
-            href="https://wa.me/573223073678"
+            href="https://wa.me/573223073578"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-red-600/20 hover:shadow-red-700/30 -translate-y-[1px] hover:-translate-y-[2px] active:translate-y-0 transition-all duration-200"
@@ -107,20 +109,20 @@ export default function Home() {
           <div className="space-y-8 max-w-xl animate-fade-in">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 text-sm font-semibold tracking-wide">
               <span className="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
-              Envíos Express a Nivel Urbano
+              Delivery a Nivel Urbano
             </div>
             <h1 className="text-5xl lg:text-6xl font-black tracking-tight leading-[1.1]">
               Ophal Line
               <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">
-                Envíos Express
+                Delivery
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-blue-100/90 leading-relaxed">
-              Más de 5 años ofreciendo soluciones rápidas, eficientes y seguras en domicilios, mensajería masiva y logística urbana para empresas y particulares.
+              Diseñamos la logística para tu entrega, contamos con el personal capacitado para entrega segura.
             </p>
             <div className="flex gap-4 flex-wrap pt-2">
               <a
-                href="https://wa.me/573223073678"
+                href="https://wa.me/573223073578"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-2xl font-extrabold text-lg shadow-xl shadow-red-600/30 hover:shadow-red-700/40 -translate-y-[1px] hover:-translate-y-[2px] active:translate-y-0 transition-all duration-200"
@@ -140,11 +142,11 @@ export default function Home() {
             {/* Glowing background halo */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-blue-500/20 rounded-full blur-[80px] pointer-events-none"></div>
             <img
-              src="/logo.jpeg"
-              alt="Ophal Line Envíos Express"
+              src="/logo3.png"
+              alt="Ophal Line Delivery"
               className="w-full max-w-[460px] object-contain drop-shadow-2xl relative z-10 transition-transform duration-500 hover:scale-105"
               onError={(e) => {
-                e.currentTarget.src = "/logo.png";
+                e.currentTarget.src = "/logo3.png";
               }}
             />
           </div>
@@ -167,18 +169,19 @@ export default function Home() {
               Quiénes Somos
             </span>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              Organización especializada <br className="hidden sm:inline" />
-              en logística urbana de excelencia
+              Más cerca, más rápido, con la seguridad
+              <br className="hidden sm:inline" />
+              que tu marca merece.
             </h2>
             <p className="text-lg text-blue-100/80 leading-relaxed font-light">
-              Más de 5 años liderando la distribución de altos volúmenes y entregas inmediatas a nivel urbano, con personal confiable, tecnología en tiempo real y procesos que garantizan calidad en cada entrega.
+              Diseñamos la logística urbana para que cada entrega sea una experiencia de confianza: tiempos cortos, procesos seguros y acompañamiento.
             </p>
           </div>
 
           {/* Stats boxes (4 columns) */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16">
             {[
-              { num: '+5', label: 'Años de experiencia' },
+              { num: '100%', label: 'Garantía' },
               { num: '24/7', label: 'Dom a Dom operación' },
               { num: '100%', label: 'Personal con dotación' },
               { num: 'GPS', label: 'Rastreo en tiempo real' },
@@ -230,6 +233,110 @@ export default function Home() {
         </div>
       </section>
 
+      {/* MISIÓN & VISIÓN */}
+      <section
+        id="mision"
+        className="py-24 bg-white relative overflow-hidden"
+      >
+        {/* Decorative blobs */}
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-red-50 rounded-full blur-[120px] opacity-60 pointer-events-none -translate-x-1/2 -translate-y-1/2"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-50 rounded-full blur-[120px] opacity-60 pointer-events-none translate-x-1/2 translate-y-1/2"></div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <span className="inline-block bg-red-600 text-white px-5 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-md shadow-red-600/20">
+              Nuestra Esencia
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 leading-tight">
+              Misión &amp; Visión
+            </h2>
+            <p className="text-lg text-gray-500 font-light">
+              El propósito que nos mueve y el futuro que estamos construyendo juntos.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+            {/* MISIÓN */}
+            <div className="relative bg-gradient-to-br from-[#001f54] to-[#003087] text-white p-10 rounded-3xl shadow-2xl overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-red-600/10 rounded-full blur-[60px] pointer-events-none"></div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-red-600/30">
+                  🎯
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-red-400">Misión</span>
+              </div>
+              <h3 className="text-2xl font-black mb-4 leading-snug">
+                Una plataforma que transforma personas y mueve ciudades
+              </h3>
+              <p className="text-blue-100/80 leading-relaxed font-light text-base">
+                Ser la plataforma que impulsa el crecimiento de quienes hacen parte de nuestra operación, brindándoles herramientas, formación y oportunidades reales para desarrollarse. Al mismo tiempo, ofrecemos soluciones logísticas confiables y eficientes que conectan a nuestros clientes con cada entrega de forma segura y puntual.
+              </p>
+              <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <div className="text-red-400 font-black text-lg">Personas</div>
+                  <div className="text-blue-100/60 text-xs font-light">Desarrollo y crecimiento real</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-red-400 font-black text-lg">Confianza</div>
+                  <div className="text-blue-100/60 text-xs font-light">Entregas seguras y puntuales</div>
+                </div>
+              </div>
+            </div>
+
+            {/* VISIÓN */}
+            <div className="relative bg-white border border-gray-100 p-10 rounded-3xl shadow-2xl overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-blue-50 rounded-full blur-[60px] pointer-events-none"></div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#001f54] to-[#003087] rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-blue-900/20">
+                  🌟
+                </div>
+                <span className="text-xs font-bold uppercase tracking-widest text-blue-800">Visión</span>
+              </div>
+              <h3 className="text-2xl font-black mb-4 leading-snug text-gray-900">
+                Líderes en logística para las grandes cadenas de Colombia
+              </h3>
+              <p className="text-gray-500 leading-relaxed font-light text-base">
+                Ser una de las empresas de logística urbana más destacadas del país, aliada estratégica de las principales cadenas de comida preparada y negocios de alto volumen, reconocida por su crecimiento sostenible, la calidad de su servicio y su compromiso con el desarrollo humano de cada miembro del equipo.
+              </p>
+              <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <div className="text-red-600 font-black text-lg">Expansión</div>
+                  <div className="text-gray-400 text-xs font-light">Principales cadenas de comida</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-red-600 font-black text-lg">Crecimiento</div>
+                  <div className="text-gray-400 text-xs font-light">Sostenible y humano</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Bottom values strip */}
+          <div className="mt-12 bg-gray-50 border border-gray-100 rounded-3xl p-8 max-w-5xl mx-auto">
+            <p className="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Nuestros valores</p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { icon: '🤝', label: 'Compromiso' },
+                { icon: '⚡', label: 'Velocidad' },
+                { icon: '🛡️', label: 'Seguridad' },
+                { icon: '📈', label: 'Crecimiento' },
+              ].map((v, i) => (
+                <div key={i} className="flex flex-col items-center gap-2">
+                  <span className="text-3xl">{v.icon}</span>
+                  <span className="font-bold text-gray-700 text-sm">{v.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* NUESTROS SERVICIOS */}
       <section
         id="servicios"
@@ -242,40 +349,33 @@ export default function Home() {
             <span className="inline-block bg-red-600 text-white px-5 py-1.5 rounded-full font-bold text-xs uppercase tracking-widest shadow-md shadow-red-600/20">
               Nuestros Servicios
             </span>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 leading-tight">
-              Tarifas diseñadas <br className="hidden sm:inline" />
-              para cada tipo de operación
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed font-light">
-              Ofrecemos cuatro modalidades de servicio con personal calificado, tecnología y supervisión incluidos en todas.
-            </p>
           </div>
 
           {/* 4 Grid cards (2x2) */}
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
             {[
               {
-                icon: '🏍️',
-                title: 'Servicio de Domicilios',
-                desc: 'Entregas inmediatas con mensajeros propios, contratación directa y programación Domingo a Domingo según punto de venta.',
+                icon: '🍔',
+                title: 'Delivery / Entrega de Alimentos',
+                desc: 'Entregas inmediatas de alimentos y pedidos a domicilio con mensajeros propios, contratación directa y operación Domingo a Domingo según punto de venta.',
                 color: 'border-t-4 border-t-red-600'
               },
               {
-                icon: '✉️',
-                title: 'Entrega de Correspondencia',
-                desc: 'Distribución masiva de documentos, cartas y comunicados con trazabilidad completa y confirmación de entrega.',
+                icon: '🚀',
+                title: 'Logística diseñada para llegar antes, con seguridad y tranquilidad.',
+                desc: 'Nos especializamos en estructurar operaciones de entrega inmediata a nivel urbano: rutas optimizadas, tiempos cortos y procesos que garantizan confiabilidad en cada pedido.',
                 color: 'border-t-4 border-t-blue-600'
               },
               {
-                icon: '📦',
-                title: 'Administración Delivery',
-                desc: 'Gestión integral del servicio de entregas para negocios que requieren operación continua y control de indicadores.',
+                icon: '🏍️',
+                title: 'Personal + moto',
+                desc: 'Mensajero uniformado con moto propia, capacitado en rutas urbanas, entregas inmediatas y manejo seguro. Ideal para alto volumen de paradas.',
                 color: 'border-t-4 border-t-blue-600'
               },
               {
-                icon: '📋',
-                title: 'Trámites Personales',
-                desc: 'Gestión de diligencias y trámites con personal de confianza, puntual y con comunicación en tiempo real.',
+                icon: '🎬',
+                title: 'Creación de contenido',
+                desc: 'Producción de reels, videos cortos, fotos de producto y piezas gráficas que comunican velocidad, confianza y experiencia de entrega.',
                 color: 'border-t-4 border-t-blue-600'
               }
             ].map((srv, i) => (
@@ -472,7 +572,7 @@ export default function Home() {
                   value={formData.telefono}
                   onChange={handleChange}
                   required
-                  placeholder="Ej: 322 307 3678"
+                  placeholder="Ej: 322 307 3578"
                   className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light text-gray-800"
                 />
               </div>
@@ -516,7 +616,7 @@ export default function Home() {
       <footer className="bg-[#080f1e] text-white py-16 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4">
-            <h3 className="text-2xl font-black">Ophal Line Envíos Express</h3>
+            <h3 className="text-2xl font-black">Ophal Line Delivery</h3>
             <p className="text-gray-400 font-light text-sm max-w-sm">
               Tu aliado estratégico en logística, distribución inmediata y entrega urbana. Experiencia, tecnología y excelencia garantizada.
             </p>
@@ -534,8 +634,8 @@ export default function Home() {
           <div className="space-y-4 text-left md:text-right">
             <h4 className="font-extrabold text-lg text-white">Información de Contacto</h4>
             <div className="space-y-2 text-gray-400 font-light text-sm">
-              <p className="text-white font-semibold">Kelly Johanna Herrera — Representante Legal</p>
-              <p className="text-red-500 font-semibold text-base">Cel: 322 307 3678</p>
+              <p className="text-white font-semibold">Carlos Andrés Ordóñez — Representante Legal</p>
+              <p className="text-red-500 font-semibold text-base">Cel: 322 307 3578</p>
               <div className="pt-2 space-y-1 text-xs text-gray-400">
                 <p>Contacto: <a href="mailto:contacto@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">contacto@ophalline.com</a></p>
                 <p>Servicio al Cliente: <a href="mailto:servicioalcliente@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">servicioalcliente@ophalline.com</a></p>
@@ -548,7 +648,7 @@ export default function Home() {
 
       {/* WHATSAPP FLOATING BUTTON */}
       <a
-        href="https://wa.me/573223073678"
+        href="https://wa.me/573223073578"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4.5 rounded-full shadow-2xl hover:shadow-green-500/30 hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center animate-bounce"
