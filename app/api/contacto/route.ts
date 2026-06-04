@@ -4,6 +4,9 @@ export async function POST(request: Request) {
   try {
     const data = await request.json();
     
+    const referer = request.headers.get('referer') || 'https://www.ophalline.com/';
+    const origin = request.headers.get('origin') || 'https://www.ophalline.com';
+    
     // Enviamos la petición desde el servidor de Vercel a FormSubmit.
     // Al ser una comunicación de servidor a servidor, se evitan todos los problemas de CORS.
     const response = await fetch('https://formsubmit.co/ajax/contacto@ophalline.com', {
@@ -11,7 +14,9 @@ export async function POST(request: Request) {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+        'Referer': referer,
+        'Origin': origin
       },
       body: JSON.stringify({
         Nombre: data.Nombre,
