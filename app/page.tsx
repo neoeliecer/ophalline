@@ -619,10 +619,7 @@ export default function Home() {
             <div className="text-xs text-gray-500 pt-4 flex flex-col gap-1.5">
               <span>© {new Date().getFullYear()} Ophal Line. Todos los derechos reservados.</span>
               <span className="text-gray-600">
-                Realizada por <strong className="font-semibold text-gray-400">Matrix Producciones</strong> —{' '}
-                <Link href="/diario" className="text-red-500 hover:text-red-400 hover:underline transition-colors font-semibold">
-                  Ver Diario de Desarrollo 📑
-                </Link>
+                Realizada por <strong className="font-semibold text-gray-400">Matrix Producciones</strong>
               </span>
             </div>
           </div>
