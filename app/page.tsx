@@ -86,7 +86,7 @@ export default function Home() {
           </nav>
 
           <a
-            href="https://wa.me/573223073578"
+            href="https://wa.me/573205135502"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full font-bold shadow-lg shadow-red-600/20 hover:shadow-red-700/30 -translate-y-[1px] hover:-translate-y-[2px] active:translate-y-0 transition-all duration-200"
@@ -118,7 +118,7 @@ export default function Home() {
             </p>
             <div className="flex gap-4 flex-wrap pt-2">
               <a
-                href="https://wa.me/573223073578"
+                href="https://wa.me/573205135502"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-2xl font-extrabold text-lg shadow-xl shadow-red-600/30 hover:shadow-red-700/40 -translate-y-[1px] hover:-translate-y-[2px] active:translate-y-0 transition-all duration-200"
@@ -568,7 +568,7 @@ export default function Home() {
                   value={formData.telefono}
                   onChange={handleChange}
                   required
-                  placeholder="Ej: 322 307 3578"
+                  placeholder="Ej: 320 513 5502"
                   className="w-full bg-white border border-gray-200 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none p-4 rounded-xl transition-all font-light text-gray-800"
                 />
               </div>
@@ -631,7 +631,7 @@ export default function Home() {
             <h4 className="font-extrabold text-lg text-white">Información de Contacto</h4>
             <div className="space-y-2 text-gray-400 font-light text-sm">
               <p className="text-white font-semibold">Carlos Andrés Ordóñez — Representante Legal</p>
-              <p className="text-red-500 font-semibold text-base">Cel: 322 307 3578</p>
+              <p className="text-red-500 font-semibold text-base">Cel: 320 513 5502</p>
               <div className="pt-2 space-y-1 text-xs text-gray-400">
                 <p>Contacto: <a href="mailto:contacto@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">contacto@ophalline.com</a></p>
                 <p>Servicio al Cliente: <a href="mailto:servicioalcliente@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">servicioalcliente@ophalline.com</a></p>
@@ -644,7 +644,7 @@ export default function Home() {
 
       {/* WHATSAPP FLOATING BUTTON */}
       <a
-        href="https://wa.me/573223073578"
+        href="https://wa.me/573205135502"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4.5 rounded-full shadow-2xl hover:shadow-green-500/30 hover:scale-110 active:scale-95 transition-all duration-300 z-50 flex items-center justify-center animate-bounce"
