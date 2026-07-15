@@ -466,36 +466,54 @@ export default function Home() {
           </div>
 
           {/* Tarjetas de Correos de Contacto */}
-          <div className="grid sm:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16 max-w-5xl mx-auto">
             {[
               {
                 icon: "✉️",
                 title: "Contacto General",
                 desc: "Para cotizaciones e información",
-                email: "contacto@ophalline.com"
+                href: "mailto:contacto@ophalline.com",
+                linkText: "contacto@ophalline.com"
               },
               {
                 icon: "🤝",
                 title: "Servicio al Cliente",
                 desc: "Soporte y rastreo de envíos",
-                email: "servicioalcliente@ophalline.com"
+                href: "mailto:servicioalcliente@ophalline.com",
+                linkText: "servicioalcliente@ophalline.com"
               },
               {
                 icon: "💼",
                 title: "Gerencia General",
                 desc: "Carlos Palechor — Director",
-                email: "gerencia@ophalline.com"
+                href: "mailto:gerencia@ophalline.com",
+                linkText: "gerencia@ophalline.com"
+              },
+              {
+                icon: (
+                  <svg className="w-8 h-8 mx-auto text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                ),
+                title: "Facebook",
+                desc: "Síguenos en nuestras redes",
+                href: "https://www.facebook.com/profile.php?id=61590751200486",
+                linkText: "Ophal Line en Facebook",
+                target: "_blank",
+                rel: "noopener noreferrer"
               }
-            ].map((correo, i) => (
+            ].map((item, i) => (
               <div key={i} className="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center space-y-2 hover:shadow-md transition-shadow">
-                <div className="text-2xl">{correo.icon}</div>
-                <h4 className="font-extrabold text-gray-900 text-sm">{correo.title}</h4>
-                <p className="text-xs text-gray-500 font-light">{correo.desc}</p>
+                <div className="text-2xl h-8 flex items-center justify-center">{item.icon}</div>
+                <h4 className="font-extrabold text-gray-900 text-sm">{item.title}</h4>
+                <p className="text-xs text-gray-500 font-light">{item.desc}</p>
                 <a 
-                  href={`mailto:${correo.email}`} 
+                  href={item.href}
+                  target={item.target}
+                  rel={item.rel}
                   className="block text-red-600 hover:text-red-700 font-bold text-xs hover:underline pt-1 break-all"
                 >
-                  {correo.email}
+                  {item.linkText}
                 </a>
               </div>
             ))}
@@ -633,6 +651,7 @@ export default function Home() {
                 <p>Contacto: <a href="mailto:contacto@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">contacto@ophalline.com</a></p>
                 <p>Servicio al Cliente: <a href="mailto:servicioalcliente@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">servicioalcliente@ophalline.com</a></p>
                 <p>Gerencia: <a href="mailto:gerencia@ophalline.com" className="text-red-400 hover:text-red-300 transition-colors font-medium">gerencia@ophalline.com</a></p>
+                <p>Facebook: <a href="https://www.facebook.com/profile.php?id=61590751200486" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-300 transition-colors font-medium">Visitar nuestro perfil</a></p>
               </div>
             </div>
           </div>

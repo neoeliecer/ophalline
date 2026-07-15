@@ -74,6 +74,27 @@ export default function PrivacyPolicyHub() {
             </Link>
           ))}
         </div>
+
+        <div className="mt-16 bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            Eliminación de Cuenta y Datos Personales
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            De acuerdo con las normativas de privacidad y las políticas de Google Play, Ophal Line garantiza a sus usuarios el derecho a solicitar la eliminación de su cuenta y de todos los datos personales asociados a la misma.
+          </p>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">¿Cómo solicitar la eliminación?</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-4">
+            Puedes solicitar la eliminación permanente de tu cuenta y tus datos de dos maneras:
+          </p>
+          <ul className="list-disc pl-5 text-gray-600 dark:text-gray-300 mb-4 space-y-2">
+            <li><strong>Desde la aplicación:</strong> Inicia sesión en la aplicación, dirígete a tu Perfil &gt; Configuración y selecciona la opción "Eliminar cuenta".</li>
+            <li><strong>Por correo electrónico:</strong> Envía un correo a <strong>contacto@ophalline.com</strong> desde la dirección de correo registrada, con el asunto "Solicitud de Eliminación de Cuenta".</li>
+          </ul>
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
+            Una vez recibida tu solicitud, eliminaremos toda tu información personal (nombre, correo electrónico, dirección, historial de pedidos y ubicación) de nuestras bases de datos en un plazo máximo de 30 días, conservando únicamente los datos exigidos por ley para fines fiscales o de seguridad.
+          </p>
+        </div>
+
       </div>
     </div>
   );
