@@ -636,6 +636,9 @@ export default function Home() {
             </p>
             <div className="text-xs text-gray-500 pt-4 flex flex-col gap-1.5">
               <span>© {new Date().getFullYear()} Ophal Line. Todos los derechos reservados.</span>
+              <Link href="/politica-de-privacidad" className="text-gray-400 hover:text-white transition-colors underline decoration-white/20 underline-offset-4 w-fit">
+                Política de Privacidad
+              </Link>
               <span className="text-gray-600">
                 Realizada por <strong className="font-semibold text-gray-400">Matrix Producciones</strong>
               </span>
